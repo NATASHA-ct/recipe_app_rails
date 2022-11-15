@@ -24,9 +24,10 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.build(recipe_params)
 
-       respond_to do |format|
+    respond_to do |format|
       if @recipe.save
-       redirect_to recipes_path(@recipe), notice: 'Recipe was successfully created!' 
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
+      #  redirect_to recipes_path(@recipe), notice: 'Recipe was successfully created!' 
         format.json { render :show, status: :created, location: @recipe }
       else
         @errors = @recipe.errors.full_messages
