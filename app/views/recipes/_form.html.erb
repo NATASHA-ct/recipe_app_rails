@@ -18,21 +18,13 @@
 
   <div>
     <%= form.label :preparation_time, style: "display: block" %>
-    <%= form.number_field :preparation_time  %>
-    <select>
-        <option value="hours">hours</option>
-        <option value="minutes">minutes</option>
-    </select>
-      
+    <%= form.number_field :preparation_time  %> <strong> In Minutes</strong>
   </div>
 
   <div>
     <%= form.label :cooking_time, style: "display: block" %>
-    <%= form.number_field :cooking_time %>
-    <select>
-      <option value="hours">hours</option>
-      <option value="minutes">minutes</option>
-    </select>
+    <%= form.number_field :cooking_time  %> <strong>In Minutes</strong>
+    
   </div>
 
   <div>
