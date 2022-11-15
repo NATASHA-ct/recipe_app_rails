@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
-   @recipe = current_user.recipes.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
   end
 
   # GET /recipes/new
@@ -26,8 +26,7 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
-      #  redirect_to recipes_path(@recipe), notice: 'Recipe was successfully created!' 
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created!' }
         format.json { render :show, status: :created, location: @recipe }
       else
         @errors = @recipe.errors.full_messages
@@ -57,7 +56,7 @@ class RecipesController < ApplicationController
     @recipe.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+      format.html { redirect_to recipes_url, notice: 'Recipe was successfully deleted.' }
       format.json { head :no_content }
     end
   end

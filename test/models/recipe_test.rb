@@ -7,7 +7,7 @@ require 'test_helper'
 # end
 
 describe Recipe do
-  describe "validity" do
-    it "requires a user"
-    
+  describe 'validity' do
+    it 'requires a user'
+  end
 end
