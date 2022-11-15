@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_recipe, only: %i[show edit update destroy]
 
   # GET /recipes or /recipes.json
@@ -21,11 +22,9 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
-    # @recipe = Recipe.new(recipe_params)
+    @recipe = Recipe.new(recipe_params)
 
-    @recipe = current_user.recipes.build(recipe_params)
-
-    respond_to do |format|
+       respond_to do |format|
       if @recipe.save
         format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
         format.json { render :show, status: :created, location: @recipe }
