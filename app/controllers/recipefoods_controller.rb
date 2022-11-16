@@ -5,6 +5,8 @@ class RecipefoodsController < ApplicationController
   # GET /recipefoods/new
   def new
     @recipefood = Recipefood.new
+    @recipe = Recipe.find(params[:recipe_id])
+    @foods = Food.includes(:user).where(user: current_user)
   end
 
  
@@ -14,34 +16,23 @@ class RecipefoodsController < ApplicationController
 
     respond_to do |format|
       if @recipefood.save
-        format.html { redirect_to recipefood_url(@recipefood), notice: 'Recipefood was successfully created.' }
+        format.html { redirect_to recipefood_url(@recipefood), notice: 'Ingredient was successfully added.' }
         format.json { render :show, status: :created, location: @recipefood }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity ,alert: 'Ingredient was not added!' }
         format.json { render json: @recipefood.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /recipefoods/1 or /recipefoods/1.json
-  def update
-    respond_to do |format|
-      if @recipefood.update(recipefood_params)
-        format.html { redirect_to recipefood_url(@recipefood), notice: 'Recipefood was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recipefood }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @recipefood.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
+  
   # DELETE /recipefoods/1 or /recipefoods/1.json
   def destroy
+    @recipe = Recipe.find(params[:recipe_id])
     @recipefood.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipefoods_url, notice: 'Recipefood was successfully destroyed.' }
+      format.html { redirect_to recipefoods_url, notice: 'Ingredient was successfully deleted.' }
       format.json { head :no_content }
     end
   end
