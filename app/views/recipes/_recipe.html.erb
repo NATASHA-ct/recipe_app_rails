@@ -1,13 +1,19 @@
 <div id="<%= dom_id recipe %>">
-  <p>
+  <h2>
     <strong>Name:</strong>
     <%= recipe.name %>
-  </p>
+  </h2>
 
   <p>
     <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
+     <span><%= recipe.preparation_time %> </span>
     <strong>minutes</strong>
+    
+    <strong>
+      <label class="switch"> Public:
+        <input type="radio" <%=recipe.public %>>
+       </label>
+    </strong>
   </p>
 
   <p>
@@ -18,11 +24,6 @@
   <p>
     <strong>Description:</strong>
     <%= recipe.description %>  
-  </p>
-
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
   </p>
 
 </div>

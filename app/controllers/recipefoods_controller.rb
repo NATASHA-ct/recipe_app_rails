@@ -1,22 +1,13 @@
 class RecipefoodsController < ApplicationController
   before_action :set_recipefood, only: %i[show edit update destroy]
 
-  # GET /recipefoods or /recipefoods.json
-  def index
-    @recipefoods = Recipefood.all
-  end
-
-  # GET /recipefoods/1 or /recipefoods/1.json
-  def show; end
-
+ 
   # GET /recipefoods/new
   def new
     @recipefood = Recipefood.new
   end
 
-  # GET /recipefoods/1/edit
-  def edit; end
-
+ 
   # POST /recipefoods or /recipefoods.json
   def create
     @recipefood = Recipefood.new(recipefood_params)
@@ -56,11 +47,6 @@ class RecipefoodsController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_recipefood
-    @recipefood = Recipefood.find(params[:id])
-  end
 
   # Only allow a list of trusted parameters through.
   def recipefood_params

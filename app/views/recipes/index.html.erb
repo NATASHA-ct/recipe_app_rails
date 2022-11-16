@@ -2,6 +2,10 @@
 
 <h1>Recipes</h1>
 
+<%= link_to "New recipe", new_recipe_path %>
+
+
+
 <div id="recipes">
   <% @recipes.each do |recipe| %>
     <div id="<%= dom_id recipe %>">
@@ -26,4 +30,4 @@
   <% end %>
 </div>
 
-<%= link_to "New recipe", new_recipe_path %>
+
