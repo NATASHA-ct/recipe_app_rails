@@ -1,19 +1,25 @@
 <header>
-    <nav>
-        <ul class="navbar-nav mr-auto">
+  <nav>
+    <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <%= link_to 'Recipes', welcome_path, class: 'nav-link' %>
+            <%= link_to 'Recipes', recipes_path,class: 'nav-link' %>
         </li>
         <li class="nav-item">
-            <%= link_to 'Foods', about_path, class: 'nav-link' %>
+            <%= link_to 'Foods', foods_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-            <%= link_to 'Public Recipes', contact_path, class: 'nav-link' %>
+            <%= link_to 'Public Recipes', recipes_public_recipes_path, class: 'nav-link' %>
         </li>
+
         <li class="nav-item">
-            <%= link_to 'General-Shopping List', contact_path, class: 'nav-link' %>
+            <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
         </li>
         
+        <li class="nav-item">
+            <%= link_to 'Edit your Profile', edit_user_registration_path,  class: 'nav-link' %>
+        </li>
+
+       
         </ul>
     </nav>
 </header>
