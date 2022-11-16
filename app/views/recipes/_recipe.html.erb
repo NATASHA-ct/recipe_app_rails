@@ -4,14 +4,16 @@
     <%= recipe.name %>
   </h2>
 
-  <p>
+  <p class="d-flex flex-row gap-5">
+    <span>
     <strong>Preparation time:</strong>
      <span><%= recipe.preparation_time %> </span>
     <strong>minutes</strong>
+    </span>
     
     <strong>
       <label class="switch"> Public:
-        <input type="radio" <%=recipe.public %>>
+        <input type="checkbox" class="rounded" <%=recipe.public %>>
        </label>
     </strong>
   </p>

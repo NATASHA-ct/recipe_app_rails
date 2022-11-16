@@ -1,6 +1,8 @@
 <header>
-  <nav>
-    <ul class="navbar-nav mr-auto">
+  <nav class="navbar navbar-dark bg-dark px-2">
+  
+    <ul class="navbar-nav d-flex flex-row gap-3 align-items-center fs-3 w-75 justify-content-between">
+     <li><img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=150" alt="food" width="130" height="100"></li>
         <li class="nav-item active">
             <%= link_to 'Recipes', recipes_path,class: 'nav-link' %>
         </li>
@@ -8,18 +10,23 @@
             <%= link_to 'Foods', foods_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-            <%= link_to 'Public Recipes', recipes_public_recipes_path, class: 'nav-link' %>
-        </li>
+            <%= link_to 'Public-recipes', recipes_public_recipes_path, class: 'nav-link' %>
+        </li></ul>
 
-        <li class="nav-item">
-            <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+    <ul class="navbar-nav d-flex gap-2">
+        <li class="nav-item nav-item bg-secondary text-white text-center px-1 rounded">
+            <%= link_to 'Edit Profile', edit_user_registration_path,  class: 'nav-link' %>
         </li>
         
-        <li class="nav-item">
-            <%= link_to 'Edit your Profile', edit_user_registration_path,  class: 'nav-link' %>
+        <li class="nav-item bg-secondary text-white text-center rounded">
+            <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
         </li>
-
-       
+        
+      
         </ul>
+       
+        
     </nav>
 </header>
+
+

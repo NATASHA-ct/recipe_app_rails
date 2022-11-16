@@ -1,0 +1,42 @@
+<div >
+  <table >
+    <thead>
+      <tr>
+        <th>
+          Food
+        </th>
+        <th>
+          Quantity
+        </th>
+        <th>
+          Price
+        </th>
+        <th >
+          Actions
+        </th>
+      </tr>
+    </thead>
+   <% recipe.recipe_foods.each do |ingredient| %>
+        <tr>
+          <td><%= ingredient.food.name %></td>
+          <td><%= "#{ingredient.quantity} #{ingredient.food.measurement_unit}" %></td>
+          <td><%= "$#{ ingredient.quantity * ingredient.food.price}" %></td>
+          <td class="d-flex">
+          <% if can? :update, ingredient %>
+           <%= link_to 'Modify', edit_recipe_recipes_food_path(recipe.id, ingredient.id), method: :patch, class: 'btn btn-sm btn-primary' %>
+          <% end %>
+           <% if can? :destroy, ingredient.food %>
+             <%= form_with url: recipe_recipes_food_path(recipe.id, ingredient.id), method: :delete, local: true, scope: :recipe_food do |f| %>
+               <%= f.hidden_field :recipe_id, {value: recipe.id} %>
+               <%= f.hidden_field :quantity, {value: ingredient.quantity} %>
+               <%= f.hidden_field :food_id, {value: ingredient.food_id} %>
+               <%= f.submit 'Delete', class: 'mx-2' %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+
+
+  </table>
+</div>
