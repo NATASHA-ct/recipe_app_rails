@@ -1,19 +1,20 @@
 <p style="color: green"><%= notice %></p>
-
+<h1>Recipe Details Page</h1>
 <%= render @recipe %>
-<%# 
-<%= render "recipes/ingredients", recipe: @recipe %> 
+
 
 <div>
    <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none">  <%= link_to "Generate shopping list", shopping_list_path %></button>
    <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none"> 
-    <%= link_to "Add ingredients", new_recipefood_path %></button>-->
+    <%= link_to "Add ingredients", new_recipefood_path %>
+    </button>
 </div>
 
-
+<%# horizontal line %>
 <div class="border bg-dark mt-3 mb-4"></div>
 
-<%# <%= render 'ingredients', ingredients: @ingredients, recipe: @recipe %> 
+<%# table %>
+<%= render "ingredients", recipe: @recipe %>
 
 <div>
 
