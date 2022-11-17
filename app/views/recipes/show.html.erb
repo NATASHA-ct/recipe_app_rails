@@ -1,27 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @recipe %>
-
-<%= render "recipes/ingredients", recipe: @recipe %>
+<%# 
+<%= render "recipes/ingredients", recipe: @recipe %> 
 
 <div>
    <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none">  <%= link_to "Generate shopping list", shopping_list_path %></button>
-    <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none"> 
-    <%= link_to "Add ingredients", new_recipefoods_path(@recipe) %></button>
+   <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none"> 
+    <%= link_to "Add ingredients", new_recipefood_path %></button>-->
 </div>
 
 
 <div class="border bg-dark mt-3 mb-4"></div>
 
-<%= render 'ingredients', ingredients: @ingredients, recipe: @recipe %>
+<%# <%= render 'ingredients', ingredients: @ingredients, recipe: @recipe %> 
 
 <div>
+
   <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> | 
   <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none"><%= link_to "Back to recipes", recipes_path %></button>
 
   <%= button_to "Delete this recipe" , @recipe, method: :delete %>
-
-
 </div>
-
 
