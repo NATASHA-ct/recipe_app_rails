@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-dark bg-dark p-1 px-2">
   
-    <ul class="navbar-nav d-flex flex-row gap-3 align-items-center fs-3 w-50 justify-content-between">
+    <ul class="navbar-nav d-flex flex-row gap-3 align-items-center fs-4 w-75 justify-content-between">
      <li><img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=150" alt="food" width="180" height="90"></li>
         <li class="nav-item active">
             <%= link_to 'Recipes', recipes_path,class: 'nav-link' %>
@@ -11,7 +11,12 @@
         </li>
         <li class="nav-item">
             <%= link_to 'Public-recipes', recipes_public_recipes_path, class: 'nav-link' %>
-        </li></ul>
+        </li>
+
+        <li class="nav-item">
+            <%= link_to 'General Shopping list', recipes_public_recipes_path, class: 'nav-link' %>
+        </li>
+    </ul>
 
     <ul class="navbar-nav d-flex gap-1">
         <li class="nav-item nav-item bg-dark text-white text-center p-0.5 rounded fs-5">
