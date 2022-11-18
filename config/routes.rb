@@ -6,11 +6,9 @@ Rails.application.routes.draw do
    end
   resources :users, :foods
   
-  resources :foods do
-    resources :recipefoods
-  end
   resources :recipes do
-    resources :recipefoods
+    resources :recipefoods, only: [:index,:new, :create, :destroy]
+
   end
 
 

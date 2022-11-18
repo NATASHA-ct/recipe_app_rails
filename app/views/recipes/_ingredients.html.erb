@@ -17,7 +17,7 @@
             <td class="table-td"><%= recipefood.quantity %></td>
             <td class="table-td">$<%= recipefood.quantity * recipefood.food.price %></td>
             <td class="table-td">
-              <%= link_to "Remove", recipe_recipefood_path(@recipe, recipefood), method: :delete, class: "btn-delete"  %>
+              <%= button_to "Remove", recipe_recipefood_path(recipefood), method: :delete, class: "btn-delete"  %>
             </td>
           </tr>
         <% end %>

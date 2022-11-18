@@ -28,12 +28,9 @@ class RecipefoodsController < ApplicationController
 
   # DELETE /recipefoods/1 or /recipefoods/1.json
   def destroy
+    @recipefood = Recipefood.find(params[:id])
     @recipefood.destroy
-
-    respond_to do |format|
-      format.html { redirect_to recipefoods_url, notice: 'Food ingredient was successfully deleted.' }
-      format.json { head :no_content }
-    end
+    redirect to recipe_path(params[:recipe_id])
   end
 
   private
