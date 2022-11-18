@@ -34,15 +34,25 @@ class FoodsController < ApplicationController
 
   # General shopping function
   def generallist
-    @recipe = current_user.recipes.find_by(id: params[:recipe_id])
-    @recipefood =  Recipefood.all
-    @food = Food.all
-    @total_price = 0
-    @recipefood.each do |ingredient|
-      @total_price += ingredient.quantity * ingredient.food.price
-    end
+    # @recipe = current_user.recipes.find_by(id: params[:recipe_id])
+    # @recipefood =  Recipefood.all
+    # @food = Food.all
+    # @total_price = 0
+    # @recipefood.each do |ingredient|
+    #   @total_price += ingredient.quantity * ingredient.food.price
+    # end
          
-  end
+    @user = current_user
+    @foods = @user.foods
+    @recipes = Recipe.where(user_id: current_user)
+    @total_price = 0
+
+    @quantity = 0
+
+    @foods.each do |food|
+      @quantity += Recipefood.joins(:food).where(food_id: food.id).sum('quantity') * food.price
+    end
+   end
 
 
   # PATCH/PUT /foods/1 or /foods/1.json

@@ -1,7 +1,7 @@
  <div>
   <h3>Your General Shopping List</h3>
   <div class="d-flex flex-row justify-content-evenly mb-5">
-    <h3>Amount of food items to buy: <%= @recipefood.length %> </h3>
+    <h3>Amount of food items to buy: <%= @foods.length %> </h3>
     <h3>Total price: <%= @total_price %></h3>
   </div>
 
@@ -16,15 +16,17 @@
       </thead>
 
       <tbody>
-        <% @recipefood.each do |ingredient|%>
-        <tr>
-          <td><%= ingredient.food.name%></th>
-          <td><%= ingredient.quantity%><%= ingredient.food.measurement_unit  %></td>
-          <td>$<%= ingredient.quantity* ingredient.food.price %></td>
-        </tr>
+         <% @foods.each do |food| %>
+          <tr>
+            <% quantity = Recipefood.joins(:food).where(food_id: food.id).sum( 'quantity') %>
+            <td><%= food.name %></td>
+              <td><%= quantity %></td>
+            <td>$<%= (food.price * quantity) %></td>
+          </tr>
+        <%end%>
       </tbody>
       </div>
-      <%end%>
+      
   </table>
   <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none"><%= link_to "Back to recipes", recipes_path%></button>
 </div>
