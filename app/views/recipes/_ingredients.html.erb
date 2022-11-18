@@ -1,7 +1,7 @@
-<div class="border border-secondary rounded-2">
- <table >
-  <thead>
-      <tr>
+<div class="border m-5 border-secondary rounded-2">
+ <table class=" gap-4 w-100" >
+  <thead >
+      <tr class= "p-3 ">
         <th>Food</th>
         <th>Quantity</th>
         <th>Price</th>
@@ -17,7 +17,7 @@
             <td class="table-td"><%= recipefood.quantity %></td>
             <td class="table-td">$<%= recipefood.quantity * recipefood.food.price %></td>
             <td class="table-td">
-              <%= button_to "Remove", recipe_recipefood_path(@recipe, recipefood), method: :delete, class: "btn-delete"  %>
+              <%= link_to "Remove", recipe_recipefood_path(@recipe, recipefood), method: :delete, class: "btn-delete"  %>
             </td>
           </tr>
         <% end %>
