@@ -1,8 +1,9 @@
 class RecipefoodsController < ApplicationController
   before_action :set_recipefood, only: %i[show edit update destroy]
- def index
-  @recipefoods = Recipefood.all
- end
+  def index
+    @recipefoods = Recipefood.all
+  end
+
   # GET /recipefoods/new
   def new
     @foods = current_user.foods
@@ -12,30 +13,27 @@ class RecipefoodsController < ApplicationController
     end
     @recipe = current_user.recipes.find(params[:recipe_id])
   end
-   
+
   # POST /recipefoods or /recipefoods.json
   def create
-    @recipe =  current_user.recipes.find_by(id:params[:recipe_id])
+    @recipe = current_user.recipes.find_by(id: params[:recipe_id])
     @recipefood = @recipe.recipefoods.new(recipefood_params)
- 
-      if @recipefood.save
-        redirect_to recipe_path(@recipe)
-      else
-        render :new, status: 'Error occured with Recipe Food!'
-      end
+
+    if @recipefood.save
+      redirect_to recipe_path(@recipe)
+    else
+      render :new, status: 'Error occured with Recipe Food!'
     end
-  
+  end
 
   # DELETE /recipefoods/1 or /recipefoods/1.json
   def destroy
-     @recipefood.destroy
+    @recipefood.destroy
 
     respond_to do |format|
       format.html { redirect_to recipefoods_url, notice: 'Food ingredient was successfully deleted.' }
       format.json { head :no_content }
     end
-  
- 
   end
 
   private

@@ -51,9 +51,8 @@ gem "sassc-rails"
 # authentication
 gem 'devise'
 
-#authorisation
+# authorisation
 gem 'cancancan'
-
 
 # bootstrap
 gem 'cssbundling-rails'
