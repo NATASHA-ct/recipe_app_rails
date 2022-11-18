@@ -12,9 +12,14 @@
     </span>
     
     <strong>
-      <label class="switch"> Public:
-        <input type="checkbox" class="rounded" <%=recipe.public %>>
-       </label>
+      <% if @recipe.public == false %>
+        <%= check_box :public, checked: false  %>
+        <label class="check-label" for="unchecked">Public</label>
+      <% else %>
+        <%= check_box :public, checked: true %>
+        <label class="check-label" for="checked">Public</label>
+      <%end%>
+    
     </strong>
   </p>
 

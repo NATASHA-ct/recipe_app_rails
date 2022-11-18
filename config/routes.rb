@@ -5,13 +5,12 @@ Rails.application.routes.draw do
      get '/users/sign_out' => 'devise/sessions#destroy'     
    end
   resources :users, :foods
-  
-  resources :recipes do
-    resources :recipefoods, only: [:index,:new, :create, :destroy]
 
+  resources :recipes do
+    resources :recipefoods
   end
 
-
+ get '/public_recipes', to: 'recipes#public'
   get '/generallist', to: 'foods#generallist'
 
    # Defines the root path route ("/")

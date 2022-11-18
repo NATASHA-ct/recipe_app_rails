@@ -51,6 +51,19 @@ class RecipesController < ApplicationController
     end
   end
 
+  # Public recipe
+    def public
+    @totals = {}
+    @public_recipes = Recipe.where(public: true).order('created_at DESC')
+    @public_recipes.each do |pub|
+      total = 0
+      Recipefood.where(recipe_id: pub.id).each do |rec_food|
+        total += rec_food.quantity * rec_food.food.price
+      end
+      @totals[pub.name] = total
+    end
+  end
+
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
     @recipe = current_user.recipes.find(params[:id])
