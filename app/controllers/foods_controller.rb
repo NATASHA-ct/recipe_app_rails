@@ -35,13 +35,15 @@ class FoodsController < ApplicationController
   # General shopping function
   def generallist
     @recipe = current_user.recipes.find_by(id: params[:recipe_id])
-    @recipefood = Recipefood.all
+    @recipefood =  Recipefood.all
     @food = Food.all
     @total_price = 0
     @recipefood.each do |ingredient|
       @total_price += ingredient.quantity * ingredient.food.price
     end
+         
   end
+
 
   # PATCH/PUT /foods/1 or /foods/1.json
   def update

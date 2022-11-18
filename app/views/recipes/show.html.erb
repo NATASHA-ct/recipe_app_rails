@@ -1,13 +1,20 @@
+<%# <% if can? :read , @recipe %> 
 <p style="color: green"><%= notice %></p>
 <h1>Recipe Details Page</h1>
 <%= render @recipe %>
 
 <div>
-   <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none">  <%= link_to "Generate shopping list", generallist_path %></button>
-
-   <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none"> 
-    <%= link_to "Add ingredients", new_recipe_recipefood_path(@recipe.id) %>
-    </button>
+    <div>
+      <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none">  <%= link_to "Generate shopping list", generallist_path %></button>
+    </div>
+<%# 
+    <% if can? :update, @recipe%> 
+    <div>
+      <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none"> 
+        <%= link_to "Add ingredients", new_recipe_recipefood_path(@recipe.id) %>
+        </button>
+    </div>
+    <%# <%end%>
 </div>
 
 <%# horizontal line %>
@@ -16,8 +23,9 @@
 <%# table %>
 <%= render "ingredients" %>
 
-<div>
-  <%= button_to "Delete this recipe" , @recipe, method: :delete %>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> | 
-  <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none"><%= link_to "Back to recipes", recipe_path %></button>
-</div>
+  <div>
+    <%= button_to "Delete this recipe" , @recipe, method: :delete %>
+    <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> | 
+    <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none"><%= link_to "Back to recipes", recipe_path %></button>
+  </div>
+<%# <%end%> 
