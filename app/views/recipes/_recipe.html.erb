@@ -1,27 +1,36 @@
 <div id="<%= dom_id recipe %>">
-  <p>
+  <h2>
     <strong>Name:</strong>
     <%= recipe.name %>
-  </p>
+  </h2>
 
-  <p>
+  <p class="d-flex flex-row gap-5">
+    <span>
     <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
+     <span><%= recipe.preparation_time %> </span>
+    <strong>minutes</strong>
+    </span>
+    
+    <strong>
+      <% if @recipe.public == false %>
+        <%= check_box :public, checked: false  %>
+        <label class="check-label" for="unchecked">Public</label>
+      <% else %>
+        <%= check_box :public, checked: true %>
+        <label class="check-label" for="checked">Public</label>
+      <%end%>
+    
+    </strong>
   </p>
 
   <p>
     <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
+    <%= recipe.cooking_time %>  <strong>minutes</strong>
   </p>
 
   <p>
     <strong>Description:</strong>
-    <%= recipe.description %>
-  </p>
-
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
+    <%= recipe.description %>  
   </p>
 
 </div>

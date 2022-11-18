@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.all
+    @foods = current_user.foods.order('id DESC')
   end
 
   # GET /foods/1 or /foods/1.json
@@ -19,7 +19,7 @@ class FoodsController < ApplicationController
 
   # POST /foods or /foods.json
   def create
-    @food = Food.new(food_params)
+    @food = current_user.foods.new(food_params)
 
     respond_to do |format|
       if @food.save
@@ -31,6 +31,29 @@ class FoodsController < ApplicationController
       end
     end
   end
+
+  # General shopping function
+  def generallist
+    # @recipe = current_user.recipes.find_by(id: params[:recipe_id])
+    # @recipefood =  Recipefood.all
+    # @food = Food.all
+    # @total_price = 0
+    # @recipefood.each do |ingredient|
+    #   @total_price += ingredient.quantity * ingredient.food.price
+    # end
+         
+    @user = current_user
+    @foods = @user.foods
+    @recipes = Recipe.where(user_id: current_user)
+    @total_price = 0
+
+    @quantity = 0
+
+    @foods.each do |food|
+      @quantity += Recipefood.joins(:food).where(food_id: food.id).sum('quantity') * food.price
+    end
+   end
+
 
   # PATCH/PUT /foods/1 or /foods/1.json
   def update

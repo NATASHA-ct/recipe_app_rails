@@ -1,0 +1,29 @@
+<div class="total">
+    <h3 class="heading">Public Recipes</h3>
+    <ul class="state">
+      <% @public_recipes.each do |recipe| %>
+        <li class="link">
+          <div class="play">
+            <div>
+              <%= link_to recipe.name, recipe_path(recipe) %>
+            </div>
+            <span>By: <%= recipe.user.name %></span>
+          </div>
+          <div class="play">
+            <div>
+              <span>Total food items: </span>
+              <span><%= recipe.foods.length %></span>
+            </div>
+            <div class="play">
+              <span>Total price:</span>
+              <% if recipe.recipefoods.find_by(recipe_id: recipe.id) %>
+                    <span><%= recipe.recipefoods.find_by(recipe_id: recipe.id).quantity * recipe.recipefoods.find_by(recipe_id: recipe.id).food.price %></span>
+              <% else %>
+                <span>0</span>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>

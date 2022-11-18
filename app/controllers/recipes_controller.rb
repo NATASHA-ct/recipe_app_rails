@@ -4,17 +4,22 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = current_user.recipes
+    @recipes = current_user.recipes.order(:id)
   end
 
   # GET /recipes/1 or /recipes/1.json
   def show
-    @recipe = current_user.recipes.find(params[:id])
+    @recipe = Recipe.find(params[:id])
+    @recipefoods = Recipefood.where(recipe_id: @recipe.id)
   end
 
   # GET /recipes/new
   def new
     @recipe = current_user.recipes.build
+  end
+ 
+  def public_recipes
+    @public_recipes = Recipe.where(public: true)
   end
 
   # GET /recipes/1/edit
@@ -47,6 +52,19 @@ class RecipesController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # Public recipe
+    def public
+    @totals = {}
+    @public_recipes = Recipe.where(public: true).order('created_at DESC')
+    @public_recipes.each do |pub|
+      total = 0
+      Recipefood.where(recipe_id: pub.id).each do |rec_food|
+        total += rec_food.quantity * rec_food.food.price
+      end
+      @totals[pub.name] = total
     end
   end
 

@@ -7,9 +7,10 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "turbo", type: "module" %>
   </head>
 
-  <body>
+  <body class="mx-auto fs-6" style="width:99%;">
    <%= render "layouts/navbar" %> 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

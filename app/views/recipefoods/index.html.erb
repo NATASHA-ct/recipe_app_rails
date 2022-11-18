@@ -3,10 +3,10 @@
 <h1>Recipefoods</h1>
 
 <div id="recipefoods">
-  <% @recipefoods.each do |recipefood| %>
+  <% @recipe.recipefoods.each do |recipefood| %>
     <%= render recipefood %>
     <p>
-      <%= link_to "Show this recipefood", recipefood %>
+      <%= link_to "Show this recipefood", recipe_recipefoods_path(@recipe) %>
     </p>
   <% end %>
 </div>
