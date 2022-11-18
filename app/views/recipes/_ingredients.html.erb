@@ -1,4 +1,4 @@
-<div >
+<div class="border border-secondary rounded-2">
  <table >
   <thead>
       <tr>
@@ -16,29 +16,20 @@
         </th>
       </tr>
     </thead>
+
+ 
   <tbody>
-   <% @recipe.recipefoods.each do |ingredient| %>
-      <tr>
-        <td><%= ingredient.food.name %></td>
-        <td><%= ingredient.quantity %></td>
-        <td><%= "$#{ ingredient.quantity * ingredient.food.price}" %></td>
+   <% @recipefoods.includes([:food]).each do |recipefood| %>
+          <tr>
+            <td class="table-td"><%= recipefood.food.name %></td>
+            <td class="table-td"><%= recipefood.quantity %></td>
+            <td class="table-td"><%= recipefood.quantity * recipefood.food.price %></td>
+            <td class="table-td">
+              <%= button_to "Remove", recipe_recipefood_path(@recipe, recipefood), method: :delete, class: "btn-delete"  %>
+            </td>
+          </tr>
+        <% end %>
 
-        <td class="d-flex">
-          <% if can? :update, ingredient %>
-             <%= link_to 'Modify', edit_recipe_recipefoods_path(recipe.id, ingredient.id), method: :patch, class: 'btn btn-sm btn-primary' %>
-          <% end %>
-
-          <% if can? :destroy, ingredient.food %>
-             <%= form_with url: recipe_recipefoods_path(recipe.id, ingredient.id), method: :delete, local: true, scope: :recipe_food do |f| %>
-                <%= f.hidden_field :recipe_id, {value: recipe.id} %>
-                <%= f.hidden_field :quantity, {value: ingredient.quantity} %>
-                <%= f.hidden_field :food_id, {value: ingredient.food_id} %>
-                <%= f.submit 'Delete', class: 'mx-2' %>
-              <% end %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
 
   </tbody>
  </table>

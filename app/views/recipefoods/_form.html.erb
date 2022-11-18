@@ -1,16 +1,24 @@
-<%= form_with url: recipe_recipefoods_path, scope: :recipe_food do |form| %>
+<%= form_with url: recipe_recipefoods_path, scope: :recipefood do |form| %>
   <div>
-    <%= form.food :food, style: "display: block" %>
-    <%= form.select :food_id, current_user.foods.collect {|food| [food.name, food.id]}%>
-  </div>
+     
+   <%= form.label :Food, class: "form-input-label" %>
+   <%= form.select :food_id, options_for_select(@food_items), {}, { :class => 'form-select mb-2' } %>
+
+</div>
 
   <div>
     <%= form.label :quantity, style: "display: block" %>
     <%= form.number_field :quantity %>
   </div>
-
   <div>
     <%= form.submit "Create recipefood" %>
   </div>
-<% end %>
+  <div>
+    <%= link_to "Back to recipe details page", recipes_path %>
+  </div>
+  
 
+  <br>
+
+  
+<% end %>

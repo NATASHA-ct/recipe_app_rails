@@ -9,7 +9,10 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
-    @recipe = current_user.recipes.find(params[:id])
+   @recipe = Recipe.find(params[:id])
+   @recipefoods = Recipefood.where(recipe_id: @recipe.id)
+
+  #  @repicefoods = @recipe.recipefoods
   end
 
   # GET /recipes/new
@@ -47,7 +50,7 @@ class RecipesController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
-    end
+   end
   end
 
   # DELETE /recipes/1 or /recipes/1.json
@@ -72,4 +75,5 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
-end
+ end
+

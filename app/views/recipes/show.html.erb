@@ -6,7 +6,7 @@
 <div>
    <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none">  <%= link_to "Generate shopping list", shopping_list_path %></button>
    <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none"> 
-    <%= link_to "Add ingredients", new_recipefood_path %>
+    <%= link_to "Add ingredients", new_recipe_recipefood_path(@recipe.id) %>
     </button>
 </div>
 
@@ -14,7 +14,7 @@
 <div class="border bg-dark mt-3 mb-4"></div>
 
 <%# table %>
-<%= render "ingredients", recipe: @recipe %>
+<%= render "ingredients" %>
 
 <div>
 

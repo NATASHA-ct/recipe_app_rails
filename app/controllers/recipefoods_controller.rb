@@ -1,33 +1,45 @@
 class RecipefoodsController < ApplicationController
   before_action :set_recipefood, only: %i[show edit update destroy]
-
+ def index
+  @recipefoods = Recipefood.all
+ end
   # GET /recipefoods/new
   def new
-    @recipefood = Recipefood.new
-    @recipe = current_user.recipes.find(params[:recipe_id])
-     unless @recipe.user == current_user
-      flash[:alert] = "This is not your recipe, so you cant add any food items"
-    @foods = Food.includes(:user).where(user: current_user)
-  end
+    # @recipefoods = Recipefood.new
+    # @recipe = Recipe.find_by(id:params[:recipe_id])
+    # @foods = current_user.foods
+    # @food_items = []
+    # @foods.each do |food|
+    #   @food_items << [food.name, food.id]
 
+    # @recipefood = Recipefood.new
+    # @recipe = Recipe.find(params[:recipe_id])
+    # @foods = current_user.foods
+
+     @foods = current_user.foods
+    @food_items = []
+    @foods.each do |food|
+      @food_items << [food.name, food.id]
+    end
+    @recipe = current_user.recipes.find(params[:recipe_id])
+
+    end
+  
+  
  
   # POST /recipefoods or /recipefoods.json
   def create
-    @recipe = current_user.recipes.find(params[:recipe_id])
-    @recipefood = Recipefood.new(recipefood_params)
-
-    respond_to do |format|
+    @recipe =  current_user.recipes.find_by(id:params[:recipe_id])
+    @recipefood = @recipe.recipefoods.new(recipefood_params)
+ 
       if @recipefood.save
-        format.html { redirect_to recipefood_url(@recipefood), notice: 'Food ingredient was successfully added.' }
-        format.json { render :show, status: :created, location: @recipefood }
+        redirect_to recipe_path(@recipe)
       else
-        format.html { render :new, status: :unprocessable_entity ,alert: 'Food ingredient was not added!' }
-        format.json { render json: @recipefood.errors, status: :unprocessable_entity }
+        render :new, status: 'Error occured with Recipe Food!'
       end
     end
-  end
-
   
+
   # DELETE /recipefoods/1 or /recipefoods/1.json
   def destroy
     @recipe = current_user.recipes.find(params[:recipe_id])
@@ -43,6 +55,6 @@ class RecipefoodsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recipefood_params
-    params.require(:recipefood).permit(:quantity)
+    params.require(:recipefood).permit(:quantity, :food_id)
   end
 end

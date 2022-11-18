@@ -1,0 +1,37 @@
+<div>
+    <h3>Shopping List</h3>
+    <div>
+      <div>>
+      <span>Amount of food items to buy: </span>
+      <span>&nbsp;<%= @foods.length %></span>
+      </div>
+
+      <div>
+      <span>Total value of food needed:</span>
+      <span>&nbsp;<%= @total %></span>
+      </div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Value</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @foods.each do |ingredient| %>
+          <tr>
+            <td><%= ingredients.name %></td>
+             <td><%= ingredients.quantity %></td>
+            <td><%= ingredients.measurement_unit %></td>
+            <td>$<%= ingredients.price %></td>
+            <td><%= button_to "Delete", ingredients_path(ingredients.id), data: {turbo_method: :delete, turbo_confirm: 'are you sure'}, method: :delete %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
