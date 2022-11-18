@@ -5,28 +5,14 @@ class RecipefoodsController < ApplicationController
  end
   # GET /recipefoods/new
   def new
-    # @recipefoods = Recipefood.new
-    # @recipe = Recipe.find_by(id:params[:recipe_id])
-    # @foods = current_user.foods
-    # @food_items = []
-    # @foods.each do |food|
-    #   @food_items << [food.name, food.id]
-
-    # @recipefood = Recipefood.new
-    # @recipe = Recipe.find(params[:recipe_id])
-    # @foods = current_user.foods
-
-     @foods = current_user.foods
+    @foods = current_user.foods
     @food_items = []
     @foods.each do |food|
       @food_items << [food.name, food.id]
     end
     @recipe = current_user.recipes.find(params[:recipe_id])
-
-    end
-  
-  
- 
+  end
+   
   # POST /recipefoods or /recipefoods.json
   def create
     @recipe =  current_user.recipes.find_by(id:params[:recipe_id])

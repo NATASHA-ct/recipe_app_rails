@@ -11,8 +11,6 @@ class RecipesController < ApplicationController
   def show
    @recipe = Recipe.find(params[:id])
    @recipefoods = Recipefood.where(recipe_id: @recipe.id)
-
-  #  @repicefoods = @recipe.recipefoods
   end
 
   # GET /recipes/new

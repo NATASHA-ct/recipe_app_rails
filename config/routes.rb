@@ -4,7 +4,7 @@ Rails.application.routes.draw do
    devise_scope :user do  
      get '/users/sign_out' => 'devise/sessions#destroy'     
    end
-  resources :users, :foods, :public_recipes, :shopping_lists
+  resources :users, :foods
   
 
   resources :recipes do
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
 
-  get 'shopping_list', to: 'shopping_lists#index' 
+  get '/generallist', to: 'foods#generallist'
 
    # Defines the root path route ("/")
   root 'recipes#index'

@@ -34,20 +34,13 @@ class FoodsController < ApplicationController
 
   # General shopping function
    def generallist
-    @foods = current_user.foods
-    current_user.recipes.map do |recipe|
-      recipe.recipefoods.map do |recipefood|
-        food = recipefood.food
-        test = @foods.select { |f| f.name == food.name }[0]
-        test.quantity = test.quantity - recipe_food.quantity
+     @recipe =  current_user.recipes.find_by(id:params[:recipe_id])
+      @recipefood = Recipefood.all
+      @food = Food.all
+      @total_price = 0
+      @recipefood.each do |ingredient|
+        @total_price += ingredient.quantity * ingredient.food.price
       end
-    end
-    @foods = @foods.select { |f| f.quantity.negative? }
-    @foods.each { |f| f.quantity *= -1 }
-    @total = 0
-    @foods.each do |ingredient|
-      @total += (ingredient.price * ingredient.quantity)
-    end
   end
 
   # PATCH/PUT /foods/1 or /foods/1.json
