@@ -1,21 +1,22 @@
 <div class="total">
     <h3 class="heading">Public Recipes</h3>
-    <ul class="state">
+    <div class="state  mx-5 d-flex flex-column align-items-center justify-content-between">
       <% @public_recipes.each do |recipe| %>
-        <li class="link">
-          <div class="play">
+        <div class="link border border-secondary rounded-4 w-100 p-3 my-5 d-flex flex-row gap-5 fs-3">
+          <div class="play d-flex flex-column w-25">
             <div>
               <%= link_to recipe.name, recipe_path(recipe) %>
             </div>
             <span>By: <%= recipe.user.name %></span>
           </div>
-          <div class="play">
+
+          <div class="play d-flex flex-column w-75 ">
             <div>
               <span>Total food items: </span>
               <span><%= recipe.foods.length %></span>
             </div>
             <div class="play">
-              <span>Total price:</span>
+              <span>Total price:$</span>
               <% if recipe.recipefoods.find_by(recipe_id: recipe.id) %>
                     <span><%= recipe.recipefoods.find_by(recipe_id: recipe.id).quantity * recipe.recipefoods.find_by(recipe_id: recipe.id).food.price %></span>
               <% else %>
@@ -23,7 +24,7 @@
               <% end %>
             </div>
           </div>
-        </li>
+        </div>
       <% end %>
-    </ul>
+    </div>
   </div>
