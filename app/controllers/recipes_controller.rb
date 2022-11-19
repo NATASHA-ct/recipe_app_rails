@@ -54,8 +54,8 @@ class RecipesController < ApplicationController
   # Public recipe
   def public
     @totals = {}
-    @public_recipes = Recipe.where(public: true).order('created_at DESC')
-    @public_recipes.each do |pub|
+    @public_recipes = Recipe.includes([:recipefoods]).where(public: true).order('created_at DESC')
+    @public_recipes.includes([:foods]).each do |pub|
       total = 0
       Recipefood.where(recipe_id: pub.id).each do |rec_food|
         total += rec_food.quantity * rec_food.food.price
