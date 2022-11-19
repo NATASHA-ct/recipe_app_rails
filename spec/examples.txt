@@ -1,0 +1,27 @@
+example_id                                          | status | run_time        |
+--------------------------------------------------- | ------ | --------------- |
+./spec/model/food_spec.rb[1:1]                      | passed | 0.00137 seconds |
+./spec/model/food_spec.rb[1:2]                      | passed | 0.00144 seconds |
+./spec/model/food_spec.rb[1:3]                      | passed | 0.00047 seconds |
+./spec/model/food_spec.rb[1:4]                      | passed | 0.00325 seconds |
+./spec/model/food_spec.rb[1:5]                      | passed | 0.00328 seconds |
+./spec/model/recipe_spec.rb[1:1]                    | passed | 0.00278 seconds |
+./spec/model/recipe_spec.rb[1:2]                    | passed | 0.00151 seconds |
+./spec/model/recipe_spec.rb[1:3]                    | passed | 0.00128 seconds |
+./spec/model/recipe_spec.rb[1:4]                    | passed | 0.00558 seconds |
+./spec/model/recipe_spec.rb[1:5]                    | passed | 0.00183 seconds |
+./spec/model/recipefood_spec.rb[1:1]                | passed | 0.00128 seconds |
+./spec/model/recipefood_spec.rb[1:2]                | passed | 0.00081 seconds |
+./spec/model/recipefood_spec.rb[1:3]                | passed | 0.001 seconds   |
+./spec/model/recipefood_spec.rb[1:4]                | passed | 0.0004 seconds  |
+./spec/model/user_spec.rb[1:1]                      | passed | 0.0078 seconds  |
+./spec/model/user_spec.rb[1:2]                      | passed | 0.00086 seconds |
+./spec/request/food_controller_spec.rb[1:1:1]       | passed | 0.00129 seconds |
+./spec/request/food_controller_spec.rb[1:2:1]       | passed | 0.17205 seconds |
+./spec/request/food_controller_spec.rb[1:3:1]       | passed | 0.02701 seconds |
+./spec/request/recipe_controller_spec.rb[1:1:1]     | passed | 0.00288 seconds |
+./spec/request/recipe_controller_spec.rb[1:2:1]     | passed | 0.03153 seconds |
+./spec/request/recipe_controller_spec.rb[1:3:1]     | passed | 0.04932 seconds |
+./spec/request/recipefood_controller_spec.rb[1:1:1] | passed | 0.05134 seconds |
+./spec/request/recipefood_controller_spec.rb[1:2:1] | passed | 0.00863 seconds |
+./spec/request/user_controller_spec.rb[1:1:1]       | passed | 0.00946 seconds |
