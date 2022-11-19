@@ -32,7 +32,7 @@ If you don't have Ruby, you can find a complete list of ways to install Ruby, in
 If you installed git you can clone the code to your machine, or download a ZIP of all the files directly.
 ```
 
-- Open the [Repository Link](https://github.com/NATASHA-ct/BLOG-app-rails.git) of this project in GitHub.
+- Open the [Repository Link](https://github.com/NATASHA-ct/recipe_app_rails.git) of this project in GitHub.
 
 - Once the files are on your machine, open capstone-ruby folder in [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -77,11 +77,11 @@ To be updated .............
 - Twitter: [@NatashaChirombe]
 - LinkedIn: [Natasha Chirombe](linkedin.com/in/natasha-chirombe-1531aa17b)
 
-👤 **Karla Delgado** (Contributor) 
+👤 **NTARE GUY**
 
-- GitHub: [@karlavdelgadof](https://github.com/karlavdelgadof)
-- Twitter: [@karlavdelgadof](https://twitter.com/karlavdelgadof)
-- LinkedIn: [Karla Delgado](https://www.linkedin.com/in/karla-delgado-613a32239/)
+- GitHub: @githubhandle
+- Twitter: @twitterhandle
+- LinkedIn: LinkedIn
 
 ## 🤝 Contributing
 
