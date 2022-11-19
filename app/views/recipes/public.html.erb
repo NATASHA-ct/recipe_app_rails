@@ -7,7 +7,7 @@
             <div>
               <%= link_to recipe.name, recipe_path(recipe) %>
             </div>
-            <span>By: <%= recipe.user.name %></span>
+            <span><%= "By #{recipe.user.name}" %></span>
           </div>
           <div class="play">
             <div>
