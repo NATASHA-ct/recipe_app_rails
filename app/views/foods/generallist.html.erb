@@ -1,8 +1,8 @@
  <div>
   <h3>Your General Shopping List</h3>
   <div class="d-flex flex-row justify-content-evenly mb-5">
-    <h3>Amount of food items to buy: <%= @foods.length %> </h3>
-    <h3>Total price: <%= @total_price %></h3>
+    <h3>Amount of food items to buy: <%= @food.length %> </h3>
+    <h3>Total price:$ <%= @total_price %></h3>
   </div>
 
   <div class="listDiv">
@@ -16,12 +16,14 @@
       </thead>
 
       <tbody>
-         <% @foods.each do |food| %>
+         <% @food.each do |food| %>
           <tr>
             <% quantity = Recipefood.joins(:food).where(food_id: food.id).sum( 'quantity') %>
+            <% unless quantity < 1 %>
             <td><%= food.name %></td>
               <td><%= quantity %></td>
             <td>$<%= (food.price * quantity) %></td>
+            <%end%>
           </tr>
         <%end%>
       </tbody>

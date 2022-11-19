@@ -24,8 +24,13 @@
 <%= render "ingredients" %>
 
   <div>
-    <%= button_to "Delete this recipe" , @recipe, method: :delete %>
-    <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> | 
-    <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none"><%= link_to "Back to recipes", recipe_path %></button>
+    <% if can? :destroy, @recipe%>
+      <%= button_to "Delete this recipe" , @recipe, method: :delete %>
+
+     <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none"><%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> </button>
+   <%end%>
+    <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none">
+    <%= link_to "Back to recipes", recipe_path %>
+    </button>
   </div>
 <%# <%end%> 
