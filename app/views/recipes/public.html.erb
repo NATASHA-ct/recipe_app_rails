@@ -1,13 +1,15 @@
 <div class="total">
     <h3 class="heading">Public Recipes</h3>
+    
     <div class="state  mx-5 d-flex flex-column align-items-center justify-content-between">
-      <% @public_recipes.each do |recipe| %>
-        <div class="link border border-secondary rounded-4 w-100 p-3 my-5 d-flex flex-row gap-5 fs-3">
+      <% @public_recipes.includes([:user]).each do |recipe| %>
+         <div class="link border border-secondary rounded-4 w-100 p-3 my-5 d-flex flex-row gap-5 fs-3">
           <div class="play d-flex flex-column w-25">
+
             <div>
               <%= link_to recipe.name, recipe_path(recipe) %>
             </div>
-            <span>By: <%= recipe.user.name %></span>
+            <span>By:<%= recipe.user.name %></span>
           </div>
 
           <div class="play d-flex flex-column w-75 ">

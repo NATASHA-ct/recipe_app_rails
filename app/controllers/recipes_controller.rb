@@ -17,10 +17,6 @@ class RecipesController < ApplicationController
   def new
     @recipe = current_user.recipes.build
   end
- 
-  def public_recipes
-    @public_recipes = Recipe.where(public: true)
-  end
 
   # GET /recipes/1/edit
   def edit; end
@@ -56,10 +52,10 @@ class RecipesController < ApplicationController
   end
 
   # Public recipe
-    def public
+  def public
     @totals = {}
-    @public_recipes = Recipe.where(public: true).order('created_at DESC')
-    @public_recipes.each do |pub|
+    @public_recipes = Recipe.includes([:recipefoods]).where(public: true).order('created_at DESC')
+    @public_recipes.includes([:foods]).each do |pub|
       total = 0
       Recipefood.where(recipe_id: pub.id).each do |rec_food|
         total += rec_food.quantity * rec_food.food.price
@@ -83,7 +79,7 @@ class RecipesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_recipe
-    @recipe = current_user.recipes.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
