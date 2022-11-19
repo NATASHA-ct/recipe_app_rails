@@ -9,7 +9,19 @@ The Recipe app keeps track of all your recipes, ingredients, and inventory. It w
 - Postgresql
 - Linters
 
-## Prerequisites
+### Key Features
+
+- [Log in and registration of the user]
+- [Recipe list ,Food list, Public recipe list pages]
+- [Functionality to Generate a shopping list with total cost]
+
+## Live Demo
+- To be deployed
+
+## Getting Started
+-To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
 
 - A Command Line Interface.
 - Having Ruby installed.
@@ -30,14 +42,11 @@ If you don't have Ruby, you can find a complete list of ways to install Ruby, in
 ### 🛠 Installation & Set Up
 
 If you installed git you can clone the code to your machine, or download a ZIP of all the files directly.
-```
+
 
 - Open the [Repository Link](https://github.com/NATASHA-ct/recipe_app_rails.git) of this project in GitHub.
 
 - Once the files are on your machine, open capstone-ruby folder in [Visual Studio Code](https://code.visualstudio.com/).
-
-## Getting Started
--To get a local copy up and running follow these simple example steps.
 
 ### Install
  Start by cloning the repository.
@@ -50,26 +59,26 @@ If you installed git you can clone the code to your machine, or download a ZIP o
 - Make sure that your project has Postgres database set up.
 - Run rails server and visi thttp://127.0.0.1:3000/ in your browser!
 
-### Usage
---Once you have your repository cloned on your machine, feel free to modify it as needed.
-- To add your own page
-
   ### run the following in your terminal:
   - gem install rails
   - gem install pg
   - bundle install (use this whenever you want add a gem in your gem file)
-  - rails new . --database=postgresql
   - rails db:create
-  - rails generate controller **foldername filename*8
-  - rails generate model
+  - change your database password to suit yours in database.yml
   
+
+### Usage
+--Once you have your repository cloned on your machine, feel free to modify it as needed.
+- To add your own page
+
 ### Testing with Rspec and Capybara
   - In your terminal run > 
      bundle exec rspec
-```
-### Quick view of the project
-To be updated .............
+  - run rspec spec
 
+### Deployment
+ - To be deployed
+  
 ## Authors
 👤 **Natasha Tatenda Chirombe**
 
@@ -97,3 +106,19 @@ Give a ⭐️ if you like this project!
 
 -Hat tip to all documentations used
 -Inspiration 
+
+## ❓ FAQ
+
+
+#### [Question_1] Do I need to have a program to manage the database. 
+
+##### [Answer_1] Yes you need postgesql or sqllite ,check installation online.
+
+#### [Question_2] Can I access the owner database .
+
+##### [Answer_2]No because its on their local database .
+
+## 📝 License
+This project is MIT licensed.
+
+NOTE: we recommend using the MIT license - you can set it up quickly by using templates available on GitHub. You can also use any other license if you wish.
