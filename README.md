@@ -29,6 +29,7 @@ The Recipe app keeps track of all your recipes, ingredients, and inventory. It w
 - Postgresql
 - A code editor like Visual Studio Clone.
 - Git installed.
+- 
 
 To check if you have Git, Postgres and Ruby installed you can use the commands below:
 
@@ -66,6 +67,26 @@ If you installed git you can clone the code to your machine, or download a ZIP o
   - rails db:create
   - change your database password to suit yours in database.yml
   
+  ### If the styling does not show please use this to install bootstrap
+  - Installing bootstrap on an existing project Existing project
+      ``` But if your project was started with import maps (the default in Rails 7), and you want to migrate to Bootstrap and a Javascript bundler (e.g., esbuild), well... the setup is not that straightforward.
+
+      The first thing you'll need to do is to install the cssbundling-rails gem and then use the installer that the gem provides to generate the necessary configuration.
+
+      bundle add cssbundling-rails
+      ./bin/rails css:install:bootstrap
+      Here's what the installer does.
+
+      It creates the builds folder, and links it in the manifest file.
+      It removes the application.css file because it generates its own.
+      It adds a package.json file to store Javascript dependencies.
+      It installs the foreman gem, and it generates a config file for it.
+      It adds a bin/dev script to start your rails server, and watch for any changes to your CSS files.
+      It creates the Bootstrap-specific scss file, which will be bundled into an application.css file.
+      It installs all the Javascript dependencies listed in the package.json file.
+      It appends the Bootstrap font path to the assets paths.
+      It adds the Bootstrap Javascript import to the application.js file.
+      And finally, it configures the build:css command and runs it to build the application.css file.```
 
 ### Usage
 --Once you have your repository cloned on your machine, feel free to modify it as needed.
