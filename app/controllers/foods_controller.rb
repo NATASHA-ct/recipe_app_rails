@@ -42,7 +42,7 @@ class FoodsController < ApplicationController
     @food.each do |item|
       @total_price += Recipefood.joins(:food).where(food_id: item.id).sum('quantity') * item.price
     end
-   end
+  end
 
   # PATCH/PUT /foods/1 or /foods/1.json
   def update

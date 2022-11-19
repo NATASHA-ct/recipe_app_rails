@@ -17,10 +17,6 @@ class RecipesController < ApplicationController
   def new
     @recipe = current_user.recipes.build
   end
- 
-  def public_recipes
-    @public_recipes = Recipe.where(public: true)
-  end
 
   # GET /recipes/1/edit
   def edit; end
@@ -56,7 +52,7 @@ class RecipesController < ApplicationController
   end
 
   # Public recipe
-    def public
+  def public
     @totals = {}
     @public_recipes = Recipe.where(public: true).order('created_at DESC')
     @public_recipes.each do |pub|

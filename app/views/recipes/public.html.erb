@@ -1,13 +1,13 @@
 <div class="total">
     <h3 class="heading">Public Recipes</h3>
     <ul class="state">
-      <% @public_recipes.each do |recipe| %>
+      <% @public_recipes.includes([:user]).each do |recipe| %>
         <li class="link">
           <div class="play">
             <div>
               <%= link_to recipe.name, recipe_path(recipe) %>
             </div>
-            <span><%= "By #{recipe.user.name}" %></span>
+            <span>By:<%= recipe.user.name %></span>
           </div>
           <div class="play">
             <div>
