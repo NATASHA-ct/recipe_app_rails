@@ -8,7 +8,7 @@ RSpec.describe Recipe, type: :model do
 
     it 'the name must not be blank' do
       recipe = Recipe.create name: '', cooking_time: 25, preparation_time: 15, description: 'Steps goes here',
-      public: true, user_id: @user
+                             public: true, user_id: @user
       expect(recipe).to_not be_valid
     end
   end

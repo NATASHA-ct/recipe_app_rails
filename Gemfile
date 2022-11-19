@@ -46,7 +46,7 @@ gem 'tzinfo-data'
 gem 'bootsnap', require: false
 
 # Use Sass to process CSS
-gem "sassc-rails"
+gem 'sassc-rails'
 
 # authentication
 gem 'devise'
@@ -63,8 +63,8 @@ group :development, :test do
   # The RSpec testing framework
   gem 'bullet'
   gem 'database_cleaner'
-  gem 'ffi'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'ffi'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
 end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject do
-    User.find(6)
+    User.create(name: 'userA', email: 'test1@yahoo.com', password: 'password')
   end
   before { subject.save }
 
@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'should valid the name' do
-    subject.name = 'SUSAN'
+    subject.name = 'userA'
     expect(subject).to be_valid
   end
 end
