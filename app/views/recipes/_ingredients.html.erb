@@ -1,0 +1,27 @@
+<div class="border m-5 border-secondary rounded-2">
+ <table class=" gap-4 w-100" >
+  <thead >
+      <tr class= "p-3 ">
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th >Actions</th>
+      </tr>
+    </thead>
+
+ 
+  <tbody>
+   <% @recipefoods.includes([:food]).each do |recipefood| %>
+          <tr>
+            <td class="table-td"><%= recipefood.food.name %></td>
+            <td class="table-td"><%= recipefood.quantity %></td>
+            <td class="table-td">$<%= recipefood.quantity * recipefood.food.price %></td>
+            <td class="table-td">
+              <%= button_to "Remove", recipe_recipefood_path(recipefood), method: :delete, class: "btn-delete"  %>
+            </td>
+          </tr>
+        <% end %>
+  </tbody>
+  
+ </table>
+</div>

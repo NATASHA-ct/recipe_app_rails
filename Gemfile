@@ -46,14 +46,27 @@ gem 'tzinfo-data'
 gem 'bootsnap', require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem 'sassc-rails'
 
+# authentication
+gem 'devise'
+
+# authorisation
+gem 'cancancan'
+
+# bootstrap
+gem 'cssbundling-rails'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  # The RSpec testing framework
+  gem 'bullet'
+  gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'ffi'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
 end
 
 group :development do

@@ -7,9 +7,13 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "turbo", type: "module" %>
   </head>
 
-  <body>
+  <body class="mx-auto fs-6" style="width:99%;">
+   <%= render "layouts/navbar" %> 
+    <p class="notice text-danger fs-3"><%= notice %></p>
+    <p class="alert text-danger fs-3"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

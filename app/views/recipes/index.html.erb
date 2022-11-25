@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Your Recipes</h1>
+
+<button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none">
+   <%= link_to "Add New Recipe", new_recipe_path %>
+</button>
+
+<div id="recipes" >
+  <% @recipes.each do |recipe| %>
+    <div class="border border-secondary rounded-4 p-3 my-5"  id="<%= dom_id recipe %>">
+      <h2>
+        <strong>Name:</strong>
+        <%= recipe.name %>
+      </h2>
+
+      <p>
+        <strong>Description:</strong>
+        <%= recipe.description %>
+      </p>
+
+
+      <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none">
+          <%= link_to "Show this recipe", recipe %>
+      </button>
+
+      <button class="border-light bg-info rounded-3 my-4 p-1 text-decoration-none">
+          <%= link_to "Remove", recipe %>
+      </button>
+      
+    </div>
+  <% end %>
+</div>
+
+
