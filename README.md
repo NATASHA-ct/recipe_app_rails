@@ -90,7 +90,7 @@ If you installed git you can clone the code to your machine, or download a ZIP o
 
 ### Usage
 --Once you have your repository cloned on your machine, feel free to modify it as needed.
-- To add your own page
+- run `rails s`  in your terminal to start the app
 
 ### Testing with Rspec and Capybara
   - In your terminal run > 
